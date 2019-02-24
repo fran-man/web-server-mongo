@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController {
 
-    private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/greeting")
     public String greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return "Hello, " + name +"!";
+        return "Hello, " + name +"!" + "\nThis has been called " + this.counter.getAndIncrement() + " times!";
     }
 }
