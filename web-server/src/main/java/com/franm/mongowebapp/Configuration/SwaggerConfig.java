@@ -1,4 +1,4 @@
-package com.franm.mongowebapp.swagger;
+package com.franm.mongowebapp.Configuration;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
