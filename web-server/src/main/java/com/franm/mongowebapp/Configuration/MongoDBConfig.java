@@ -1,5 +1,6 @@
 package com.franm.mongowebapp.Configuration;
 
+import com.mongodb.MongoClientURI;
 import org.bson.Document;
 import com.mongodb.client.MongoCollection;
 import com.franm.mongowebapp.Mongo.MongoQueryHelper;
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class MongoDBConfig {
     @Bean
     public MongoClient mongodbClient(){
-      return new MongoClient("localhost", 27017);
+      return new MongoClient(new MongoClientURI("mongodb://root:example@localhost:27017"));
     }
 
     @Bean
