@@ -1,7 +1,7 @@
 package com.franm.mongowebapp.Controllers;
 
+import com.franm.mongowebapp.Mongo.MongoQueryHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.mongodb.MongoClient;
 import com.franm.mongowebapp.RequestLog;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.concurrent.atomic.AtomicLong;
@@ -15,10 +15,12 @@ public class HelloWorldController {
     private final AtomicLong counter = new AtomicLong();
 
     @Autowired
-    private MongoClient mongoClient;
+    private MongoQueryHelper queryHelper;
 
     @RequestMapping(value = "/greeting", method = RequestMethod.GET)
     public RequestLog greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new RequestLog(name, counter.incrementAndGet());
+        RequestLog reqLog = new RequestLog(name, counter.incrementAndGet());
+        queryHelper.InsertRequestRecord(reqLog);
+        return reqLog;
     }
 }
