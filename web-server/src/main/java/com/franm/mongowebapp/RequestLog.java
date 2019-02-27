@@ -6,12 +6,14 @@ public class RequestLog {
 
     private final LocalDateTime ldt;
     private final String content;
+    private final String endpoint;
     private final long requestNumber;
 
-    public RequestLog(String content, long requestNumber) {
+    public RequestLog(String content, long requestNumber, String endpoint) {
         this.ldt = LocalDateTime.now();
         this.content = "Hello, " + content + "!";
         this.requestNumber = requestNumber;
+        this.endpoint = endpoint;
     }
 
     public LocalDateTime getLdt() {
@@ -24,5 +26,9 @@ public class RequestLog {
 
     public long getRequestNumber() {
         return this.requestNumber;
+    }
+
+    public String getEndpoint() {
+        return this.endpoint;
     }
 }
