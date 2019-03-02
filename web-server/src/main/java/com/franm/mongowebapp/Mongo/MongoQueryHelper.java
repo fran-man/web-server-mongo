@@ -1,5 +1,8 @@
 package com.franm.mongowebapp.Mongo;
 
+import static com.mongodb.client.model.Sorts.*;
+import static com.mongodb.client.model.Filters.*;
+
 import com.mongodb.client.FindIterable;
 import java.util.List;
 import java.util.ArrayList;
@@ -23,10 +26,10 @@ public class MongoQueryHelper{
     List<Document> documents = new ArrayList<>();
     FindIterable<Document> findResult;
     if(count > 0){
-      findResult = this.mongoCollection.find().limit(count);
+      findResult = this.mongoCollection.find().sort(descending("_id")).limit(count);
     }
     else {
-      findResult = this.mongoCollection.find();
+      findResult = this.mongoCollection.find().sort(descending("_id"));
     }
 
     findResult.forEach(new Block<Document>() {
