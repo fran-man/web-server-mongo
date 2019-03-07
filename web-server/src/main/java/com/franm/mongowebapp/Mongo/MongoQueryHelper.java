@@ -1,6 +1,7 @@
 package com.franm.mongowebapp.Mongo;
 
 import static com.mongodb.client.model.Sorts.*;
+import static com.mongodb.client.model.Filters.*;
 
 import com.mongodb.client.FindIterable;
 import java.util.List;
