@@ -11,7 +11,7 @@ public class RequestLog {
 
     public RequestLog(String content, long requestNumber, String endpoint) {
         this.ldt = LocalDateTime.now();
-        this.content = "Hello, " + content + "!";
+        this.content = content;
         this.requestNumber = requestNumber;
         this.endpoint = endpoint;
     }
